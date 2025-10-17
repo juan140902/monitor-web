@@ -32,9 +32,7 @@ jobs:
           SMTP_USER: ${{ secrets.SMTP_USER }}
           SMTP_PASS: ${{ secrets.SMTP_PASS }}
           ALERT_TO: ${{ secrets.ALERT_TO }}
-        run: |
-          python monitor.py
-          echo "Script terminado."
+        run: python monitor.py
 
       - name: Commit snapshots si cambiaron
         run: |
@@ -48,4 +46,3 @@ jobs:
           else
             echo "No hay cambios para commitear"
           fi
-          

@@ -2,8 +2,11 @@ name: Monitor web + alertas
 
 on:
   schedule:
-    - cron: '0 */6 * * *'   # cada 6 horas. Puedes cambiarlo
-  workflow_dispatch:        # permite correr manualmente
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   monitor:
@@ -15,8 +18,8 @@ jobs:
           persist-credentials: true
           fetch-depth: 0
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
+      - name: Configurar Python
+        uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
@@ -24,7 +27,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-          
+
       - name: Ejecutar monitor
         env:
           SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
@@ -35,7 +38,7 @@ jobs:
         run: |
           python monitor.py
           echo "Script terminado."
-          
+
       - name: Commit snapshots si cambiaron
         run: |
           git config user.name "github-actions[bot]"
@@ -48,4 +51,3 @@ jobs:
           else
             echo "No hay cambios para commitear"
           fi
-          

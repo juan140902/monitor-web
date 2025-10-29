@@ -25,7 +25,11 @@ KEYWORDS = ["financiamiento para ong",
     "responsabilidad social empresaria",
     "convocatoria para jóvenes",
     "programa de voluntariado",
-    "inscripciones abiertas",
+    "inscripciones abiertas",    # language: python
+    # ...existing code...
+    doc = """Esta es una docstring
+    cerrada correctamente"""
+    # ...existing code...
     "participación juvenil",
     "liderazgo juvenil",
     "agencia córdoba joven",

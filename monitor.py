@@ -27,8 +27,7 @@ KEYWORDS = ["financiamiento para ong",
     "programa de voluntariado",
     "inscripciones abiertas",    # language: python
     # ...existing code...
-    doc = """Esta es una docstring
-    cerrada correctamente"""
+    doc = """Esta es una docstring cerrada correctamente"""
     # ...existing code...
     "participación juvenil",
     "liderazgo juvenil",
